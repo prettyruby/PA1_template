@@ -1,7 +1,24 @@
 ---
-output: 
-  html_document: 
-    keep_md: yes
+title: "Reproducible Research Project 1"
+
+author: "Jessica Shiao"
+
+date: "Nov 14, 2018"
+
+output:
+
+html_document:
+
+fig_caption: yes
+
+keep_md: yes
+
+toc: yes
+
+pdf_document: default
+
+self_contained: no
+
 ---
 Reproducible Research - Course Project 1 - Analyzing Activity Monitoring Data
 
@@ -21,41 +38,7 @@ Load the knitr, dplyr, lattice, ggplot2 and lubridate packages.
 ```r
 library(knitr)
 library(dplyr)
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 library(lubridate)
-```
-
-```
-## 
-## Attaching package: 'lubridate'
-```
-
-```
-## The following object is masked from 'package:base':
-## 
-##     date
-```
-
-```r
 library(lattice)
 library(ggplot2)
 ```
@@ -113,7 +96,7 @@ hist(activityData_stepsperday$Total_Number_of_Steps,
      xlab = "Total Number of Steps Per Day")
 ```
 
-![](PA1_template_files/figure-html/totalstepsperday_hist-1.png)<!-- -->
+![plot of chunk totalstepsperday_hist](figure/totalstepsperday_hist-1.png)
 
 **Calculate and report the mean and median of the total number of steps taken per day.**
 
@@ -167,7 +150,7 @@ head(activityData_stepsperint)
 ggplot(activityData_stepsperint, aes(interval, Mean_Number_of_Steps)) + geom_line() + ggtitle("Avg Number of Steps per Interval") + xlab("Interval") + ylab("Average Number of Steps")
 ```
 
-![](PA1_template_files/figure-html/intervaltimeseriesplot-1.png)<!-- -->
+![plot of chunk intervaltimeseriesplot](figure/intervaltimeseriesplot-1.png)
 
 **Which 5-minute interval, on average across all the days in the dataset contains the maximum number of steps?**
 
@@ -252,7 +235,7 @@ hist(activityData_replace_stepsperday$Total_Number_of_Steps,
      xlab = "Total Number of Steps Per Day")
 ```
 
-![](PA1_template_files/figure-html/replacetotalstepsperday_hist-1.png)<!-- -->
+![plot of chunk replacetotalstepsperday_hist](figure/replacetotalstepsperday_hist-1.png)
 
 **Calculate and report the mean and median total number of steps taken per day.**
 
@@ -322,4 +305,6 @@ xyplot(steps ~ interval | level, stepsbylevel, type = "l", layout = c(1, 2),
        xlab = "Interval", ylab = "Number of steps", main = "Average Daily Steps by Day Classification")
 ```
 
-![](PA1_template_files/figure-html/replaceintervaltimeseriesplot-1.png)<!-- -->
+![plot of chunk replaceintervaltimeseriesplot](figure/replaceintervaltimeseriesplot-1.png)
+
+knit2html("pa1_template.Rmd")
